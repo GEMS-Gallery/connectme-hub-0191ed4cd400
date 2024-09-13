@@ -6,12 +6,14 @@ async function loadPersonalInfo() {
     const bio = await backend.getBio();
     const [email, phone, location] = await backend.getContactInfo();
     const socialLinks = await backend.getSocialLinks();
+    const profilePicture = await backend.getProfilePicture();
 
     document.getElementById("name").textContent = name;
     document.getElementById("bio").textContent = bio;
     document.getElementById("email").textContent = `Email: ${email}`;
     document.getElementById("phone").textContent = `Phone: ${phone}`;
     document.getElementById("location").textContent = `Location: ${location}`;
+    document.getElementById("profile-picture").src = profilePicture;
 
     const socialLinksElement = document.getElementById("social-links");
     socialLinks.forEach(([platform, url]) => {

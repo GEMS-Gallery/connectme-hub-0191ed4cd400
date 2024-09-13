@@ -2,6 +2,7 @@ service : {
   getBio: () -> (text) query;
   getContactInfo: () -> (text, text, text) query;
   getName: () -> (text) query;
+  getProfilePicture: () -> (text) query;
   getSocialLinks: () -> (vec record {
                                text;
                                text;

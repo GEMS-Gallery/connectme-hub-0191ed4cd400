@@ -6,6 +6,7 @@ export interface _SERVICE {
   'getBio' : ActorMethod<[], string>,
   'getContactInfo' : ActorMethod<[], [string, string, string]>,
   'getName' : ActorMethod<[], string>,
+  'getProfilePicture' : ActorMethod<[], string>,
   'getSocialLinks' : ActorMethod<[], Array<[string, string]>>,
 }
 export declare const idlFactory: IDL.InterfaceFactory;

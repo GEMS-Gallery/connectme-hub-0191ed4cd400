@@ -88,6 +88,8 @@ function drawPieChart(data) {
   const legendElement = document.getElementById("chart-legend");
   legendElement.innerHTML = "";
 
+  const slices = [];
+
   data.forEach(([label, value], index) => {
     const sliceAngle = (2 * Math.PI * Number(value)) / total;
     const endAngle = startAngle + sliceAngle;
@@ -99,6 +101,14 @@ function drawPieChart(data) {
     ctx.fillStyle = color;
     ctx.fill();
 
+    slices.push({
+      startAngle,
+      endAngle,
+      label,
+      value: Number(value),
+      color
+    });
+
     startAngle = endAngle;
 
     // Add legend item
@@ -109,6 +119,40 @@ function drawPieChart(data) {
       ${label}: ${value}%
     `;
     legendElement.appendChild(legendItem);
+  });
+
+  // Add hover functionality
+  const tooltip = document.getElementById("chart-tooltip");
+  canvas.addEventListener("mousemove", (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const dx = x - centerX;
+    const dy = y - centerY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance <= radius) {
+      const angle = Math.atan2(dy, dx);
+      const hoveredSlice = slices.find(slice => 
+        angle >= slice.startAngle && angle < slice.endAngle
+      );
+
+      if (hoveredSlice) {
+        tooltip.style.opacity = "1";
+        tooltip.style.left = `${event.clientX - rect.left}px`;
+        tooltip.style.top = `${event.clientY - rect.top}px`;
+        tooltip.textContent = `${hoveredSlice.label}: ${hoveredSlice.value}%`;
+      } else {
+        tooltip.style.opacity = "0";
+      }
+    } else {
+      tooltip.style.opacity = "0";
+    }
+  });
+
+  canvas.addEventListener("mouseout", () => {
+    tooltip.style.opacity = "0";
   });
 }
 

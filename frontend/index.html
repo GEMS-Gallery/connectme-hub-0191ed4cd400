@@ -14,29 +14,35 @@
             <h1 id="name"></h1>
             <p id="bio"></p>
         </header>
-        <main>
-            <section class="card">
-                <h2>About Me</h2>
-                <div id="contact-info"></div>
-                <div id="skills-list"></div>
-            </section>
-            <section class="card">
-                <h2>Projects</h2>
-                <div id="projects-list"></div>
-            </section>
-            <section class="card">
-                <h2>Testimonials</h2>
-                <div id="testimonials-list"></div>
-            </section>
-            <section class="card">
-                <h2>Get in Touch</h2>
-                <form id="contact-form">
-                    <input type="text" id="name-input" placeholder="Your Name" required>
-                    <input type="email" id="email-input" placeholder="Your Email" required>
-                    <textarea id="message-input" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </section>
+        <main class="grid">
+            <div class="column">
+                <section class="card">
+                    <h2>About Me</h2>
+                    <div id="contact-info"></div>
+                    <div id="skills-list"></div>
+                </section>
+            </div>
+            <div class="column">
+                <section class="card">
+                    <h2>Projects</h2>
+                    <div id="projects-list"></div>
+                </section>
+            </div>
+            <div class="column">
+                <section class="card">
+                    <h2>Testimonials</h2>
+                    <div id="testimonials-list"></div>
+                </section>
+                <section class="card">
+                    <h2>Get in Touch</h2>
+                    <form id="contact-form">
+                        <input type="text" id="name-input" placeholder="Your Name" required>
+                        <input type="email" id="email-input" placeholder="Your Email" required>
+                        <textarea id="message-input" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </section>
+            </div>
         </main>
         <footer>
             <div id="social-links"></div>

@@ -13,28 +13,20 @@ async function loadPersonalInfo() {
 
     document.getElementById("name").textContent = name;
     document.getElementById("bio").textContent = bio;
-    document.getElementById("email").innerHTML = `<i class="fas fa-envelope"></i> <a href="mailto:${email}">${email}</a>`;
-    document.getElementById("phone").innerHTML = `<i class="fas fa-phone"></i> ${phone}`;
-    document.getElementById("location").innerHTML = `<i class="fas fa-map-marker-alt"></i> ${location}`;
     document.getElementById("profile-picture").src = profilePicture;
 
-    const socialLinksElement = document.getElementById("social-links");
-    socialLinks.forEach(([platform, url]) => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = url;
-      a.innerHTML = `<i class="fab fa-${platform.toLowerCase()}"></i> ${platform}`;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      li.appendChild(a);
-      socialLinksElement.appendChild(li);
-    });
+    const contactInfoElement = document.getElementById("contact-info");
+    contactInfoElement.innerHTML = `
+      <p>${email}</p>
+      <p>${phone}</p>
+      <p>${location}</p>
+    `;
 
     const skillsListElement = document.getElementById("skills-list");
     skills.forEach((skill) => {
-      const li = document.createElement("li");
-      li.textContent = skill;
-      skillsListElement.appendChild(li);
+      const span = document.createElement("span");
+      span.textContent = skill;
+      skillsListElement.appendChild(span);
     });
 
     const projectsListElement = document.getElementById("projects-list");
@@ -44,7 +36,7 @@ async function loadPersonalInfo() {
       projectItem.innerHTML = `
         <h3>${title}</h3>
         <p>${description}</p>
-        <a href="${link}" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt"></i></a>
+        <a href="${link}" target="_blank" rel="noopener noreferrer">View Project</a>
       `;
       projectsListElement.appendChild(projectItem);
     });
@@ -54,26 +46,24 @@ async function loadPersonalInfo() {
       const testimonialItem = document.createElement("div");
       testimonialItem.className = "testimonial-item";
       testimonialItem.innerHTML = `
-        <p><i class="fas fa-quote-left"></i> ${text} <i class="fas fa-quote-right"></i></p>
+        <p>"${text}"</p>
         <p><strong>${name}</strong>, ${position}</p>
       `;
       testimonialsListElement.appendChild(testimonialItem);
     });
+
+    const socialLinksElement = document.getElementById("social-links");
+    socialLinks.forEach(([platform, url]) => {
+      const a = document.createElement("a");
+      a.href = url;
+      a.textContent = platform;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      socialLinksElement.appendChild(a);
+    });
   } catch (error) {
     console.error("Error loading personal information:", error);
   }
-}
-
-function setupDarkModeToggle() {
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  const body = document.body;
-
-  darkModeToggle.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    const icon = darkModeToggle.querySelector("i");
-    icon.classList.toggle("fa-moon");
-    icon.classList.toggle("fa-sun");
-  });
 }
 
 function setupContactForm() {
@@ -93,6 +83,5 @@ function setupContactForm() {
 
 window.addEventListener("load", () => {
   loadPersonalInfo();
-  setupDarkModeToggle();
   setupContactForm();
 });

@@ -13,7 +13,7 @@ body.dark-mode {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -38,6 +38,12 @@ header {
 
 h1 {
     color: #333;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .card {
@@ -160,4 +166,10 @@ body.dark-mode .project-item, body.dark-mode .testimonial-item {
 body.dark-mode #dark-mode-toggle {
     background-color: #f4f4f4;
     color: #333;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }

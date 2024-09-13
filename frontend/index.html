@@ -14,38 +14,44 @@
             <p id="bio"></p>
             <button id="dark-mode-toggle">Toggle Dark Mode</button>
         </header>
-        <main>
-            <section class="card contact-card">
-                <h2>Contact Information</h2>
-                <p id="email"></p>
-                <p id="phone"></p>
-                <p id="location"></p>
-            </section>
-            <section class="card skills-card">
-                <h2>Skills</h2>
-                <ul id="skills-list"></ul>
-            </section>
-            <section class="card projects-card">
-                <h2>Projects</h2>
-                <div id="projects-list"></div>
-            </section>
-            <section class="card testimonials-card">
-                <h2>Testimonials</h2>
-                <div id="testimonials-list"></div>
-            </section>
-            <section class="card social-card">
-                <h2>Social Links</h2>
-                <ul id="social-links"></ul>
-            </section>
-            <section class="card contact-form-card">
-                <h2>Contact Me</h2>
-                <form id="contact-form">
-                    <input type="text" id="name-input" placeholder="Your Name" required>
-                    <input type="email" id="email-input" placeholder="Your Email" required>
-                    <textarea id="message-input" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </section>
+        <main class="grid">
+            <div class="column">
+                <section class="card contact-card">
+                    <h2>Contact Information</h2>
+                    <p id="email"></p>
+                    <p id="phone"></p>
+                    <p id="location"></p>
+                </section>
+                <section class="card skills-card">
+                    <h2>Skills</h2>
+                    <ul id="skills-list"></ul>
+                </section>
+            </div>
+            <div class="column">
+                <section class="card projects-card">
+                    <h2>Projects</h2>
+                    <div id="projects-list"></div>
+                </section>
+                <section class="card social-card">
+                    <h2>Social Links</h2>
+                    <ul id="social-links"></ul>
+                </section>
+            </div>
+            <div class="column">
+                <section class="card testimonials-card">
+                    <h2>Testimonials</h2>
+                    <div id="testimonials-list"></div>
+                </section>
+                <section class="card contact-form-card">
+                    <h2>Contact Me</h2>
+                    <form id="contact-form">
+                        <input type="text" id="name-input" placeholder="Your Name" required>
+                        <input type="email" id="email-input" placeholder="Your Email" required>
+                        <textarea id="message-input" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </section>
+            </div>
         </main>
     </div>
     <script type="module" src="index.js"></script>

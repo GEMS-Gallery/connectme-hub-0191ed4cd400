@@ -1,15 +1,28 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --card-background: #fff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    transition: background-color 0.3s ease;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 body.dark-mode {
-    background-color: #333;
-    color: #f4f4f4;
+    --background-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --card-background: #34495e;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .container {
@@ -21,6 +34,7 @@ body.dark-mode {
 header {
     text-align: center;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .profile-picture {
@@ -29,7 +43,8 @@ header {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-speed) ease;
+    box-shadow: var(--card-shadow);
 }
 
 .profile-picture:hover {
@@ -37,7 +52,15 @@ header {
 }
 
 h1 {
-    color: #333;
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-top: 0;
 }
 
 .grid {
@@ -47,30 +70,16 @@ h1 {
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
     padding: 20px;
     margin-bottom: 20px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-}
-
-body.dark-mode .card {
-    background-color: #444;
-    color: #f4f4f4;
-}
-
-h2 {
-    color: #444;
-    margin-top: 0;
-}
-
-body.dark-mode h2 {
-    color: #f4f4f4;
 }
 
 ul {
@@ -83,17 +92,13 @@ li {
 }
 
 a {
-    color: #0077b5;
+    color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
-    text-decoration: underline;
-}
-
-body.dark-mode a {
-    color: #4db8ff;
+    color: var(--secondary-color);
 }
 
 #skills-list {
@@ -103,33 +108,26 @@ body.dark-mode a {
 }
 
 #skills-list li {
-    background-color: #e0e0e0;
+    background-color: var(--secondary-color);
+    color: #fff;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 0.9em;
-    transition: background-color 0.3s ease;
-}
-
-body.dark-mode #skills-list li {
-    background-color: #555;
+    transition: background-color var(--transition-speed) ease;
 }
 
 .project-item, .testimonial-item {
     margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-body.dark-mode .project-item, body.dark-mode .testimonial-item {
-    border-color: #555;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color var(--transition-speed) ease;
 }
 
 #contact-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 #contact-form input, #contact-form textarea {
@@ -137,35 +135,44 @@ body.dark-mode .project-item, body.dark-mode .testimonial-item {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    transition: border-color var(--transition-speed) ease;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 #contact-form button {
-    background-color: #0077b5;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-speed) ease;
 }
 
 #contact-form button:hover {
-    background-color: #005fa3;
+    background-color: var(--secondary-color);
 }
 
 #dark-mode-toggle {
-    background-color: #333;
-    color: #fff;
+    background-color: transparent;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1.5em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: color var(--transition-speed) ease;
 }
 
-body.dark-mode #dark-mode-toggle {
-    background-color: #f4f4f4;
-    color: #333;
+#dark-mode-toggle:hover {
+    color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

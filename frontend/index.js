@@ -13,9 +13,9 @@ async function loadPersonalInfo() {
 
     document.getElementById("name").textContent = name;
     document.getElementById("bio").textContent = bio;
-    document.getElementById("email").innerHTML = `Email: <a href="mailto:${email}">${email}</a>`;
-    document.getElementById("phone").textContent = `Phone: ${phone}`;
-    document.getElementById("location").textContent = `Location: ${location}`;
+    document.getElementById("email").innerHTML = `<i class="fas fa-envelope"></i> <a href="mailto:${email}">${email}</a>`;
+    document.getElementById("phone").innerHTML = `<i class="fas fa-phone"></i> ${phone}`;
+    document.getElementById("location").innerHTML = `<i class="fas fa-map-marker-alt"></i> ${location}`;
     document.getElementById("profile-picture").src = profilePicture;
 
     const socialLinksElement = document.getElementById("social-links");
@@ -23,7 +23,7 @@ async function loadPersonalInfo() {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = url;
-      a.textContent = platform;
+      a.innerHTML = `<i class="fab fa-${platform.toLowerCase()}"></i> ${platform}`;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
       li.appendChild(a);
@@ -44,7 +44,7 @@ async function loadPersonalInfo() {
       projectItem.innerHTML = `
         <h3>${title}</h3>
         <p>${description}</p>
-        <a href="${link}" target="_blank" rel="noopener noreferrer">View Project</a>
+        <a href="${link}" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-external-link-alt"></i></a>
       `;
       projectsListElement.appendChild(projectItem);
     });
@@ -54,7 +54,7 @@ async function loadPersonalInfo() {
       const testimonialItem = document.createElement("div");
       testimonialItem.className = "testimonial-item";
       testimonialItem.innerHTML = `
-        <p>"${text}"</p>
+        <p><i class="fas fa-quote-left"></i> ${text} <i class="fas fa-quote-right"></i></p>
         <p><strong>${name}</strong>, ${position}</p>
       `;
       testimonialsListElement.appendChild(testimonialItem);
@@ -70,6 +70,9 @@ function setupDarkModeToggle() {
 
   darkModeToggle.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
+    const icon = darkModeToggle.querySelector("i");
+    icon.classList.toggle("fa-moon");
+    icon.classList.toggle("fa-sun");
   });
 }
 

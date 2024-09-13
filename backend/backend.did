@@ -1,0 +1,9 @@
+service : {
+  getBio: () -> (text) query;
+  getContactInfo: () -> (text, text, text) query;
+  getName: () -> (text) query;
+  getSocialLinks: () -> (vec record {
+                               text;
+                               text;
+                             }) query;
+}

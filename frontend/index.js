@@ -10,6 +10,7 @@ async function loadPersonalInfo() {
     const skills = await backend.getSkills();
     const projects = await backend.getProjects();
     const testimonials = await backend.getTestimonials();
+    const timeAllocation = await backend.getTimeAllocation();
 
     document.getElementById("name").textContent = name;
     document.getElementById("bio").textContent = bio;
@@ -61,9 +62,53 @@ async function loadPersonalInfo() {
       a.rel = "noopener noreferrer";
       socialLinksElement.appendChild(a);
     });
+
+    drawPieChart(timeAllocation);
   } catch (error) {
     console.error("Error loading personal information:", error);
   }
+}
+
+function drawPieChart(data) {
+  const canvas = document.getElementById("time-allocation-chart");
+  const ctx = canvas.getContext("2d");
+  const centerX = canvas.width / 2;
+  const centerY = canvas.height / 2;
+  const radius = Math.min(centerX, centerY) - 10;
+
+  let total = data.reduce((sum, [_, value]) => sum + value, 0);
+  let startAngle = 0;
+
+  const colors = [
+    "#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF",
+    "#FF9F40", "#FF6384", "#C9CBCF", "#4BC0C0", "#FF6384"
+  ];
+
+  const legendElement = document.getElementById("chart-legend");
+  legendElement.innerHTML = "";
+
+  data.forEach(([label, value], index) => {
+    const sliceAngle = (2 * Math.PI * value) / total;
+    const endAngle = startAngle + sliceAngle;
+    const color = colors[index % colors.length];
+
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY);
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    startAngle = endAngle;
+
+    // Add legend item
+    const legendItem = document.createElement("div");
+    legendItem.className = "legend-item";
+    legendItem.innerHTML = `
+      <span class="legend-color" style="background-color: ${color};"></span>
+      ${label}: ${value}%
+    `;
+    legendElement.appendChild(legendItem);
+  });
 }
 
 function setupContactForm() {

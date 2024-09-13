@@ -11,6 +11,7 @@ export interface _SERVICE {
   'getSkills' : ActorMethod<[], Array<string>>,
   'getSocialLinks' : ActorMethod<[], Array<[string, string]>>,
   'getTestimonials' : ActorMethod<[], Array<[string, string, string]>>,
+  'getTimeAllocation' : ActorMethod<[], Array<[string, bigint]>>,
 }
 export declare const idlFactory: IDL.InterfaceFactory;
 export declare const init: (args: { IDL: typeof IDL }) => IDL.Type[];

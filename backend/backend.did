@@ -18,4 +18,8 @@ service : {
                                 text;
                                 text;
                               }) query;
+  getTimeAllocation: () -> (vec record {
+                                  text;
+                                  nat;
+                                }) query;
 }

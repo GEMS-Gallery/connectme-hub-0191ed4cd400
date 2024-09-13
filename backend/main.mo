@@ -1,4 +1,5 @@
 import Nat "mo:base/Nat";
+import Time "mo:base/Time";
 
 import Text "mo:base/Text";
 
@@ -32,6 +33,14 @@ actor {
     ("Sarah Lee", "Project Manager, Big Corp", "John's ability to deliver high-quality work on time is impressive.")
   ];
 
+  stable var timeAllocation : [(Text, Nat)] = [
+    ("Work", 85),
+    ("Gym", 5),
+    ("Family", 5),
+    ("Learning", 3),
+    ("Hobbies", 2)
+  ];
+
   public query func getName() : async Text {
     name
   };
@@ -62,5 +71,9 @@ actor {
 
   public query func getTestimonials() : async [(Text, Text, Text)] {
     testimonials
+  };
+
+  public query func getTimeAllocation() : async [(Text, Nat)] {
+    timeAllocation
   };
 }

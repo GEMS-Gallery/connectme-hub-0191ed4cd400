@@ -20,6 +20,11 @@ export const idlFactory = ({ IDL }) => {
         [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Text, IDL.Text))],
         ['query'],
       ),
+    'getTimeAllocation' : IDL.Func(
+        [],
+        [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Nat))],
+        ['query'],
+      ),
   });
 };
 export const init = ({ IDL }) => { return []; };

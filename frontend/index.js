@@ -7,10 +7,11 @@ async function loadPersonalInfo() {
     const [email, phone, location] = await backend.getContactInfo();
     const socialLinks = await backend.getSocialLinks();
     const profilePicture = await backend.getProfilePicture();
+    const skills = await backend.getSkills();
 
     document.getElementById("name").textContent = name;
     document.getElementById("bio").textContent = bio;
-    document.getElementById("email").textContent = `Email: ${email}`;
+    document.getElementById("email").innerHTML = `Email: <a href="mailto:${email}">${email}</a>`;
     document.getElementById("phone").textContent = `Phone: ${phone}`;
     document.getElementById("location").textContent = `Location: ${location}`;
     document.getElementById("profile-picture").src = profilePicture;
@@ -25,6 +26,13 @@ async function loadPersonalInfo() {
       a.rel = "noopener noreferrer";
       li.appendChild(a);
       socialLinksElement.appendChild(li);
+    });
+
+    const skillsListElement = document.getElementById("skills-list");
+    skills.forEach((skill) => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      skillsListElement.appendChild(li);
     });
   } catch (error) {
     console.error("Error loading personal information:", error);

@@ -59,3 +59,16 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+#skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#skills-list li {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}

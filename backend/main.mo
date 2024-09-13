@@ -14,6 +14,10 @@ actor {
     ("Twitter", "https://twitter.com/johndoe")
   ];
 
+  stable var skills : [Text] = [
+    "JavaScript", "React", "Node.js", "Python", "Docker", "AWS"
+  ];
+
   public query func getName() : async Text {
     name
   };
@@ -32,5 +36,9 @@ actor {
 
   public query func getProfilePicture() : async Text {
     profilePicture
+  };
+
+  public query func getSkills() : async [Text] {
+    skills
   };
 }

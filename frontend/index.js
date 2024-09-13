@@ -39,6 +39,11 @@ async function loadPersonalInfo() {
         <p>${description}</p>
         <a href="${link}" target="_blank" rel="noopener noreferrer">View Project</a>
       `;
+      if (title === "E-commerce Platform") {
+        projectItem.innerHTML += `
+          <iframe src="${link}" class="project-preview" title="E-commerce Platform Preview"></iframe>
+        `;
+      }
       projectsListElement.appendChild(projectItem);
     });
 

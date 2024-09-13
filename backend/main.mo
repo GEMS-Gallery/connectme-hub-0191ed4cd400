@@ -23,7 +23,7 @@ actor {
   ];
 
   stable var projects : [(Text, Text, Text)] = [
-    ("E-commerce Platform", "Built a scalable e-commerce platform using React and Node.js", "https://example.com/project1"),
+    ("E-commerce Platform", "Built a scalable e-commerce platform using React and Node.js", "https://4u6j3-4aaaa-aaaab-qaorq-cai.raw.icp0.io/"),
     ("AI Chatbot", "Developed an AI-powered chatbot using Python and TensorFlow", "https://example.com/project2"),
     ("Mobile App", "Created a cross-platform mobile app using React Native", "https://example.com/project3")
   ];

@@ -22,7 +22,7 @@ export const idlFactory = ({ IDL }) => {
       ),
     'getTimeAllocation' : IDL.Func(
         [],
-        [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Nat))],
+        [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Int))],
         ['query'],
       ),
   });

@@ -66,6 +66,7 @@ async function loadPersonalInfo() {
     drawPieChart(timeAllocation);
   } catch (error) {
     console.error("Error loading personal information:", error);
+    alert("An error occurred while loading the page. Please try again later.");
   }
 }
 
@@ -76,7 +77,7 @@ function drawPieChart(data) {
   const centerY = canvas.height / 2;
   const radius = Math.min(centerX, centerY) - 10;
 
-  let total = data.reduce((sum, [_, value]) => sum + value, 0);
+  let total = data.reduce((sum, [_, value]) => sum + Number(value), 0);
   let startAngle = 0;
 
   const colors = [
@@ -88,7 +89,7 @@ function drawPieChart(data) {
   legendElement.innerHTML = "";
 
   data.forEach(([label, value], index) => {
-    const sliceAngle = (2 * Math.PI * value) / total;
+    const sliceAngle = (2 * Math.PI * Number(value)) / total;
     const endAngle = startAngle + sliceAngle;
     const color = colors[index % colors.length];
 

@@ -3,9 +3,19 @@ service : {
   getContactInfo: () -> (text, text, text) query;
   getName: () -> (text) query;
   getProfilePicture: () -> (text) query;
+  getProjects: () -> (vec record {
+                            text;
+                            text;
+                            text;
+                          }) query;
   getSkills: () -> (vec text) query;
   getSocialLinks: () -> (vec record {
                                text;
                                text;
                              }) query;
+  getTestimonials: () -> (vec record {
+                                text;
+                                text;
+                                text;
+                              }) query;
 }

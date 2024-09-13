@@ -4,10 +4,20 @@ export const idlFactory = ({ IDL }) => {
     'getContactInfo' : IDL.Func([], [IDL.Text, IDL.Text, IDL.Text], ['query']),
     'getName' : IDL.Func([], [IDL.Text], ['query']),
     'getProfilePicture' : IDL.Func([], [IDL.Text], ['query']),
+    'getProjects' : IDL.Func(
+        [],
+        [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Text, IDL.Text))],
+        ['query'],
+      ),
     'getSkills' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
     'getSocialLinks' : IDL.Func(
         [],
         [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Text))],
+        ['query'],
+      ),
+    'getTestimonials' : IDL.Func(
+        [],
+        [IDL.Vec(IDL.Tuple(IDL.Text, IDL.Text, IDL.Text))],
         ['query'],
       ),
   });

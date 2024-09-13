@@ -1,3 +1,5 @@
+import Nat "mo:base/Nat";
+
 import Text "mo:base/Text";
 
 actor {
@@ -16,6 +18,18 @@ actor {
 
   stable var skills : [Text] = [
     "JavaScript", "React", "Node.js", "Python", "Docker", "AWS"
+  ];
+
+  stable var projects : [(Text, Text, Text)] = [
+    ("E-commerce Platform", "Built a scalable e-commerce platform using React and Node.js", "https://example.com/project1"),
+    ("AI Chatbot", "Developed an AI-powered chatbot using Python and TensorFlow", "https://example.com/project2"),
+    ("Mobile App", "Created a cross-platform mobile app using React Native", "https://example.com/project3")
+  ];
+
+  stable var testimonials : [(Text, Text, Text)] = [
+    ("Jane Smith", "CEO, Tech Innovators", "John is an exceptional developer with a keen eye for detail."),
+    ("Mike Johnson", "CTO, StartUp Co", "Working with John was a pleasure. His technical skills are top-notch."),
+    ("Sarah Lee", "Project Manager, Big Corp", "John's ability to deliver high-quality work on time is impressive.")
   ];
 
   public query func getName() : async Text {
@@ -40,5 +54,13 @@ actor {
 
   public query func getSkills() : async [Text] {
     skills
+  };
+
+  public query func getProjects() : async [(Text, Text, Text)] {
+    projects
+  };
+
+  public query func getTestimonials() : async [(Text, Text, Text)] {
+    testimonials
   };
 }

@@ -4,6 +4,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
 }
 
 .container {
@@ -23,6 +29,11 @@ header {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
 }
 
 h1 {
@@ -35,11 +46,25 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+body.dark-mode .card {
+    background-color: #444;
+    color: #f4f4f4;
 }
 
 h2 {
     color: #444;
     margin-top: 0;
+}
+
+body.dark-mode h2 {
+    color: #f4f4f4;
 }
 
 ul {
@@ -54,10 +79,15 @@ li {
 a {
     color: #0077b5;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+body.dark-mode a {
+    color: #4db8ff;
 }
 
 #skills-list {
@@ -71,4 +101,63 @@ a:hover {
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #skills-list li {
+    background-color: #555;
+}
+
+.project-item, .testimonial-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .project-item, body.dark-mode .testimonial-item {
+    border-color: #555;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact-form button {
+    background-color: #0077b5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #005fa3;
+}
+
+#dark-mode-toggle {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #f4f4f4;
+    color: #333;
 }
